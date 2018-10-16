@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--angularjs is declarative.not procedural like js.-->
+	<!--main aim of angularjs is binding-->
+	<title><!--angularjs binds html code with js objects--></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+	<script>
+		function Customer($scope)//constructor function or blueprint or the controller function
+		{
+			$scope.customerName="shiv";//$scope is the binding part between html view and js controller
+			$scope.customerCode="1001";
+		}
+		//registering our model and controllers
+		var myApp=angular.module("myApp",[]);//defining the module
+		myApp.controller("Customerobj",Customer);//defining the controllers.
+		//first paramerter is the name which should be used in html for controller.and second is name of function
+	</script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div id=customerScreen ng-controller="Cusotmerobj"><!--ng-controller will create and object of customer intenally and bind with the customerscreen-->
+			Customer Name <input type="text" id="customerName" ng-model="customerName"><!--ng-model binds the properties.take the property value and bind it to text box-->
+			Customer Code <input type="text" id="customerCode" ng-model="customerCode">
+			<div id="divCustomerName">{{customerName}}</div>
+			<div id="divCustomerCode">{{customerCode}}</div>
+		</div>
+	</div>
+</body>
+</html>
